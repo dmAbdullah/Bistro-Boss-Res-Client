@@ -7,7 +7,7 @@ const Recommends = () => {
                 <SectionTitle heading="CHEF RECOMMENDS" subHeading="Should Try">
                 </SectionTitle>
             </section>
-            <div className='md:flex md:flex-row gap-5 justify-between '>
+            <div className='md:flex md:flex-row gap-5 justify-between'>
             <div className='w-72 text-center bg-[#fafac2] mb-10 mx-auto'>
                 <img src={img1} alt="" />
                 <h4 className='text-xl font-bold mt-3'>Caeser Salad</h4>
