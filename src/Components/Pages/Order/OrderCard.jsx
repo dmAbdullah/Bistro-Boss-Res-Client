@@ -1,6 +1,5 @@
-import React from 'react';
 
-const ShopCard = ({item}) => {
+const OrderCard = ({item}) => {
     const {name, image, price, recipe}= item;
     return (
         <div>
@@ -21,4 +20,4 @@ const ShopCard = ({item}) => {
     );
 };
 
-export default ShopCard;
+export default OrderCard;

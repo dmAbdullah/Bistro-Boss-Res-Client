@@ -5,16 +5,18 @@ import dessertImg from "../../../assets/menu/dessert-bg.jpeg"
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg"
 import saladImg from "../../../assets/menu/salad-bg.jpg"
 import soupImg from "../../../assets/menu/soup-bg.jpg"
+import drinksImg from "../../../assets/menu/banner3.jpg"
 import useMenu from '../../../Hooks/UseMenu';
 import SectionTitle from '../../Shared/SectionTitle';
 import MenuCategory from './MenuCategory';
 
 const Menu = () => {
     const [menu]= useMenu();
-    const dessert = menu.filter(item=> item.category === 'dessert')
+    const desserts = menu.filter(item=> item.category === 'dessert')
     const soup = menu.filter(item=> item.category === 'soup')
     const salad = menu.filter(item=> item.category === 'salad')
     const pizza = menu.filter(item=> item.category === 'pizza')
+    const drinks = menu.filter(item=> item.category === 'drinks')
     const offered = menu.filter(item=> item.category === 'offered')
     return (
     <div>
@@ -31,11 +33,11 @@ const Menu = () => {
         items={offered}>
         </MenuCategory>
 
-        {/* dessert menu items */}
+        {/* salad menu items */}
         <MenuCategory 
-        items={dessert} 
-        title="dessert" 
-        coverImg={dessertImg}>
+        items={salad} 
+        title="salad" 
+        coverImg={saladImg}>
         </MenuCategory>
 
         {/* pizza menu items */}
@@ -45,18 +47,25 @@ const Menu = () => {
         coverImg={pizzaImg}>
         </MenuCategory>
 
-        {/* salad menu items */}
-        <MenuCategory 
-        items={salad} 
-        title="salad" 
-        coverImg={saladImg}>
-        </MenuCategory>
-
         {/* soup menu items */}
         <MenuCategory 
         items={soup} 
         title="soup" 
         coverImg={soupImg}>
+        </MenuCategory>
+
+        {/* dessert menu items */}
+        <MenuCategory 
+        items={desserts} 
+        title="desserts" 
+        coverImg={dessertImg}>
+        </MenuCategory>
+
+        {/* drinks menu items */}
+        <MenuCategory 
+        items={drinks} 
+        title="drinks" 
+        coverImg={drinksImg}>
         </MenuCategory>
     </div>
     );

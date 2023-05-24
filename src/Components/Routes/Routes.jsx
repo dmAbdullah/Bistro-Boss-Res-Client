@@ -4,7 +4,7 @@ import {
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Menu from "../Pages/Menu/Menu";
-import Shop from "../Pages/Shop/Shop";
+import Order from "../Pages/Order/Order";
 
 
 
@@ -22,8 +22,8 @@ import Shop from "../Pages/Shop/Shop";
             element: <Menu></Menu>
         },
         {
-            path: '/shop',
-            element: <Shop></Shop>
+            path: '/order/:category',
+            element: <Order></Order>
         },
       ]
     },

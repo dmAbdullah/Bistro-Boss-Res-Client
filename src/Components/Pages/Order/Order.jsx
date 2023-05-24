@@ -1,27 +1,33 @@
 import { Helmet } from "react-helmet-async";
-import orderCoverImg from "../../../assets/shop/banner2.jpg"
+import CoverImg from "../../../assets/shop/banner2.jpg"
 import Cover from "../../Shared/Cover";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
 import useMenu from "../../../Hooks/UseMenu";
-import ShopCard from "./ShopCard";
-import ShopTab from "./ShopTab";
+import OrderTab from "./OrderTab";
+import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
-const Shop = () => {
-    const [tabIndex, setTabIndex] = useState(0);
+const Order = () => {
+    const categories= [ 'salad', 'pizza', 'soup', 'desserts', 'drinks']
+    const {category}= useParams();
+    const initialIndex= categories.indexOf(category)
+    const [tabIndex, setTabIndex] = useState(initialIndex);
     const [menu]=useMenu();
-    const desserts = menu.filter(item=> item.category === 'dessert')
-    const soup = menu.filter(item=> item.category === 'soup')
     const salad = menu.filter(item=> item.category === 'salad')
     const pizza = menu.filter(item=> item.category === 'pizza')
+    const soup = menu.filter(item=> item.category === 'soup')
+    const desserts = menu.filter(item=> item.category === 'dessert')
     const drinks = menu.filter(item=> item.category === 'drinks')
+    // const offered = menu.filter(item=> item.category === 'offered')
+
     
     return (
         <div>
             <Helmet>
-             <title>Bistro Boss | Shop</title></Helmet>
-             <Cover img={orderCoverImg} title="Our Shop"></Cover>
+             <title>Bistro Boss | Order Food</title></Helmet>
+             <Cover img={CoverImg} title="Our Order"></Cover>
 
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
 
@@ -34,20 +40,19 @@ const Shop = () => {
         </TabList>
 
         <TabPanel>
-            <ShopTab items={salad}></ShopTab>
+            <OrderTab items={salad}></OrderTab>
         </TabPanel>
         <TabPanel>
-            <ShopTab items={pizza}></ShopTab>
+            <OrderTab items={pizza}></OrderTab>
         </TabPanel>
         <TabPanel>
-            <ShopTab items={soup}></ShopTab>
+            <OrderTab items={soup}></OrderTab>
         </TabPanel>
         <TabPanel>
-            <ShopTab items={desserts}></ShopTab>
+            <OrderTab items={desserts}></OrderTab>
         </TabPanel>
         <TabPanel>
-            <ShopTab items={drinks}></ShopTab>
-
+            <OrderTab items={drinks}></OrderTab>
         </TabPanel>
 
         </Tabs>
@@ -56,4 +61,4 @@ const Shop = () => {
     );
 };
 
-export default Shop;
+export default Order;
