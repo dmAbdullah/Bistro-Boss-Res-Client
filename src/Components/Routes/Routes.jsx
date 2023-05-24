@@ -2,7 +2,9 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../Home/Home";
+import Home from "../Pages/Home/Home";
+import Menu from "../Pages/Menu/Menu";
+import Shop from "../Pages/Shop/Shop";
 
 
 
@@ -14,7 +16,15 @@ import Home from "../Home/Home";
         {
             path: '/',
             element: <Home></Home>
-        }
+        },
+        {
+            path: '/menu',
+            element: <Menu></Menu>
+        },
+        {
+            path: '/shop',
+            element: <Shop></Shop>
+        },
       ]
     },
   ]);

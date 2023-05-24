@@ -1,4 +1,4 @@
-import img from "../../assets/home/chef-service.jpg"
+import img from "../../../assets/home/chef-service.jpg"
 const About = () => {
     return (
         <div className="hero mb-10 bg-fixed" style={{ backgroundImage: `url(${img})` }}>

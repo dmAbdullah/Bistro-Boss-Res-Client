@@ -1,5 +1,5 @@
-import img1 from '../../assets/menu/salad-bg.jpg'
-import SectionTitle from '../Shaired/SectionTitle';
+import img1 from '../../../assets/menu/salad-bg.jpg'
+import SectionTitle from '../../Shared/SectionTitle';
 const Recommends = () => {
     return (
         <div >

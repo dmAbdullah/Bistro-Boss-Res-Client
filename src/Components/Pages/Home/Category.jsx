@@ -4,12 +4,12 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import slide_1 from "../../assets/home/slide1.jpg"
-import slide_2 from "../../assets/home/slide2.jpg"
-import slide_3 from "../../assets/home/slide3.jpg"
-import slide_4 from "../../assets/home/slide4.jpg"
-import slide_5 from "../../assets/home/slide5.jpg"
-import SectionTitle from "../Shaired/SectionTitle";
+import slide_1 from "../../../assets/home/slide1.jpg"
+import slide_2 from "../../../assets/home/slide2.jpg"
+import slide_3 from "../../../assets/home/slide3.jpg"
+import slide_4 from "../../../assets/home/slide4.jpg"
+import slide_5 from "../../../assets/home/slide5.jpg"
+import SectionTitle from "../../Shared/SectionTitle";
 
 const Category = () => {
     return (

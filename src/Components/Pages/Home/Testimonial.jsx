@@ -1,4 +1,4 @@
-import SectionTitle from "../Shaired/SectionTitle";
+import SectionTitle from "../../Shared/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -32,7 +32,7 @@ const Testimonial = () => {
         
         {
            reviews.map(review=><SwiperSlide key={review._id}>
-            <div className=" flex flex-col items-center p-10">
+            <div className=" flex flex-col items-center px-14">
             <Rating className="my-5" style={{ maxWidth: 150 }} value={review.rating} readOnly />
             <div  data-aos="zoom-in" className="text-7xl">
             <FaQuoteLeft/>
