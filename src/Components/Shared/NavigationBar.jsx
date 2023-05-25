@@ -7,11 +7,10 @@ const NavigationBar = () => {
         <li><Link to='/order/salad'>OUR ORDER</Link></li>
         <li><Link>DASHBOARD</Link></li>
         <li><Link>CONTACT US</Link></li>
-        <li><Link>SIGN OUT</Link></li>
         </>
     return (
         <div className="">
-        <div className="fixed z-20 navbar bg-black bg-opacity-10 flex justify-between max-w-screen-xl glass">
+        <div className="fixed z-20 navbar hover:bg-slate-400 bg-black bg-opacity-10 flex justify-between max-w-screen-xl glass duration-500">
   <div className="">
     <div className="dropdown">
       <label tabIndex={0} className="lg:hidden">
@@ -29,10 +28,10 @@ const NavigationBar = () => {
     </ul>
   </div>
   <div className="gap-5 text-white">
-  <h3>Name</h3>
+  <Link to='/login'>LOGIN</Link>
   <div className="avatar">
   <div className="w-16 mask mask-squircle">
-    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
+    <img title="name" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
   </div>
 </div>
 </div>

@@ -17,7 +17,7 @@ const MenuCategory = ({items, title, coverImg}) => {
             <div className="text-center">
                 <Link
                  to={`/order/${title}`}>
-            <button className="mb-10 border-b-2 rounded-lg font-semibold border-slate-800 p-2 hover:bg-slate-800 hover:text-yellow-500 duration-500 mx-auto">ORDER YOUR FAVORITE FOOD</button>
+            <button className="mb-10 border-b-2 rounded-lg font-semibold hover:border-slate-800 p-2 hover:bg-slate-800 hover:text-yellow-500 duration-500 mx-auto bg-slate-100 border-yellow-600">ORDER YOUR FAVORITE FOOD</button>
                 </Link>
             </div>
 

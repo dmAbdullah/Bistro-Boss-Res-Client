@@ -12,7 +12,7 @@ const OrderCard = ({item}) => {
     <h2 className="card-title">{name}</h2>
     <p>{recipe}</p>
     <div className="card-actions">
-    <button className="mb-10 border-b-2 rounded-lg font-semibold border-slate-800 p-2 hover:bg-slate-800 hover:text-yellow-500 duration-500 ">Add to Cart</button>
+    <button className="mb-10 border-b-2 rounded-lg font-semibold hover:border-slate-800 p-2 hover:bg-slate-800 hover:text-yellow-500 duration-500 mx-auto bg-slate-100 border-yellow-600">Add to Cart</button>
     </div>
   </div>
 </div>
