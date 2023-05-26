@@ -1,47 +1,60 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
-import { useContext, useEffect, useRef, useState } from "react";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const [disabled, setDisabled] = useState(true);
+  const { signIn } = useContext(AuthContext);
+  const nevigate = useNavigate();
+  const location = useLocation();
 
-    const captchaRef= useRef(null);
-    const [disabled, setDisabled]= useState(true);
+  const from = location.state?.from?.pathname || "/";
 
-const {signIn} = useContext(AuthContext);
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
 
-    useEffect(() =>{
-        loadCaptchaEnginge(6)
-    },[])
-
-  const handleLogin = event => {
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log({ email, password });
-    signIn(email, password);
-    .then(result => {
-        const user = result.user
-        console.log(user);
-    })
-  }
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
 
-const handleValidateCaptcha= () =>{
-  const user_captcha_value = captchaRef.current.value;
+      Swal.fire({
+        title: "User Login Successful.",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      nevigate(from, { replace: true });
+    });
+  };
 
-  if (validateCaptcha(user_captcha_value)) {
-    setDisabled(false)
-    alert('Captcha Matched');
-}
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
 
-else {
-    alert('Captcha Does Not Match');
-    setDisabled(true)
-}
-}
+    if (validateCaptcha(user_captcha_value)) {
+      setDisabled(false);
+    } else {
+      alert("Captcha Does Not Match");
+      setDisabled(true);
+    }
+  };
 
   return (
     <div>
@@ -68,7 +81,8 @@ else {
                   type="email"
                   placeholder="email"
                   name="email"
-                  className="input input-bordered" required
+                  className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -79,9 +93,10 @@ else {
                   type="password"
                   placeholder="password"
                   name="password"
-                  className="input input-bordered" required
+                  className="input input-bordered"
+                  required
                 />
-                  <label className="label">
+                <label className="label">
                   <Link className="label-text-alt link link-hover">
                     Forgot password?
                   </Link>
@@ -89,16 +104,17 @@ else {
               </div>
               <div className="form-control">
                 <label className="label">
-                <LoadCanvasTemplate/>
+                  <LoadCanvasTemplate />
                 </label>
                 <input
-                  ref={captchaRef}
+                  onBlur={handleValidateCaptcha}
                   type="text"
                   placeholder="type the captcha"
                   name="captcha"
-                  className="input input-bordered" required
+                  className="input input-bordered"
+                  required
                 />
-                <button onClick={handleValidateCaptcha}  className="btn btn-xs btn-outline mt-2 w-5/12">Validate</button>
+                {/* <button className="btn btn-xs btn-outline mt-2 w-5/12">Validate</button> */}
               </div>
               <div className="form-control mt-2">
                 <input
@@ -127,5 +143,5 @@ else {
       </div>
     </div>
   );
-
+};
 export default Login;

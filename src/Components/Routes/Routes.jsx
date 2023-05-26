@@ -7,6 +7,8 @@ import Menu from "../Pages/Menu/Menu";
 import Order from "../Pages/Order/Order";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import Secret from "../Shared/Secret";
+import PrivetRoute from "./PrivetRoute";
 
 
 
@@ -34,6 +36,12 @@ import SignUp from "../Pages/SignUp";
         {
             path: '/signUp',
             element: <SignUp></SignUp>
+        },
+        {
+            path: '/secret',
+            element: <PrivetRoute>
+              <Secret></Secret>
+              </PrivetRoute>
         },
       ]
     },

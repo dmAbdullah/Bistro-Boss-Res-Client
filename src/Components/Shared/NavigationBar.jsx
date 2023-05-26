@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext } from "react";
 
 const NavigationBar = () => {
+  const {user, logOut}= useContext(AuthContext)
+  const handleLogOut = () =>{
+    logOut()
+  }
     const navOptions= <>
     <li><Link to='/'>HOME</Link></li>
         <li><Link to='/menu'>OUR MENU</Link></li>
         <li><Link to='/order/salad'>OUR ORDER</Link></li>
-        <li><Link>DASHBOARD</Link></li>
+        <li><Link to='/secret'>SECRET</Link></li>
         <li><Link>CONTACT US</Link></li>
         </>
     return (
@@ -28,10 +34,15 @@ const NavigationBar = () => {
     </ul>
   </div>
   <div className="gap-5 text-white">
-  <Link to='/login'>LOGIN</Link>
+  {
+  user? '' :<Link to='/signUp'>SIGNUP</Link>
+  }
+  {
+  user? <Link onClick={handleLogOut}>LOGOUT</Link> :<Link to='/login'>LOGIN</Link>
+  }
   <div className="avatar">
   <div className="w-16 mask mask-squircle">
-    <img title="name" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&w=1000&q=80" />
+    {user? <img title={user.displayName} src={user.photo} /> : ''}
   </div>
 </div>
 </div>
